@@ -1,0 +1,23 @@
+Create a docker image with salt-master and salt-api installed on it.
+
+just clone this repo and run below command to create a docker image.
+
+Clone the repo:
+    git clone https://github.com/yogeshprasad/salt-examples.git
+
+Change the dir:
+    cd /root/salt-examples/build-salt-master-api
+
+Build the docker image:
+    docker build -t "salt-server-img" .
+
+Create the container:
+  docker run -ti --name="my-salt-server" salt-server-img bash
+  
+Test the api:
+    curl -k https://172.17.0.2:8553/login -H "Accept: application/x-yaml" -d username='admin' -d password='password' -d eauth='pam
+    
+    
+172.17.0.2 : It is a container private IP.
+
+Done.
